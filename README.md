@@ -21,3 +21,20 @@ console.log(evaluated(2, 3))
 // 5
 
 The constructor takes two arguments, the first being a string with comma separated argument names, and the second argument being a string with the body of the function. 
+
+
+
+
+
+
+# Non- Categorized for now
+### What is 'use strict' mode?
+
+You can type in 'use strict' (just a string) at the top of your javascript code (you can also just place in a function to contain to only that scope) and 'opt in' to a more strict interpretation of the code- much of the reason for this has to do with the fact that javascript has some quirks and flaws, and strict mode helps you avoid them. For example, in strict mode you are forbidden to redefine the special arguments keyword: 
+"use strict";
+var arguments = 'new';
+console.log(arguments)
+
+var arguments = 'new';
+    ^^^^^^^^^
+SyntaxError: Unexpected eval or arguments in strict mode
