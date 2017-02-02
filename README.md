@@ -38,3 +38,6 @@ console.log(arguments)
 var arguments = 'new';
     ^^^^^^^^^
 SyntaxError: Unexpected eval or arguments in strict mode
+
+### What is a network protocol?
+A protocol describes the style of communication over a particular network. There are protocols for sending email, for fetching email, for sharing files, or even for controlling computers that happen to be infected by malicious software. The two most commone for requesting a url are HTTP and HTTPS.
