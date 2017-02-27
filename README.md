@@ -70,6 +70,10 @@ Both work. The only difference is that when you pass props into super, super(pro
 
 React has built-in lifecycle methods that are automatically invoked at the appropriate 'lifecycle hooks.' When a component is passed to ReactDOM.render(), first that component's constructor is called, and then that component's render() method is invoked. Immediately after, the actual DOM is updated with this render output. Right _after_ the render() output is inserted into the DOM, React automatically calls componentDidMount(). The "mount" is the actual DOM updating. 
 
+### Why does React have 'unidirectional' data flow? 
+
+State is local, and specific to a particular component, it is 'encapsulated.' This state is only accessible to the ONE component that initializes it and stores it. This state can only affect the components that are structured below it in the hierarchy. State can only be passed to child components through props, from top-down, hence- 'unidirectional.'
+
 # Non- Categorized for now
 ### What is 'use strict' mode?
 
