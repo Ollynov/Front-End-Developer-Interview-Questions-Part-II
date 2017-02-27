@@ -52,7 +52,7 @@ If your react component has no props being passed down to it, has no state, and 
 
 ### What is super(props)? 
 
-Inside of a components constructor method, you need to include super(props) if you are having props passed down, before any other statements. If you don't include it, then 'this.props' will be undefined. The following code will work just as well:
+Super() allows you to access the constructor of the parent class. Inside of a components constructor method, you need to include super(props) if you are having props passed down, before any other statements. If you don't include it, then 'this.props' will be undefined. The following code will work just as well:
 ```
 constructor(props) {
     super(props);
