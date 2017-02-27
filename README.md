@@ -46,6 +46,10 @@ Every DOM node also has a nodeType property which will return a number, that rep
 
 For starters, the render() function doesn't necessarily need to be 'pure', but it _should be_ so it does not produce any tricky errors, and so that your entire app can have a structure that is easier to reason about. A pure function must return the same result each time that it is invoked. For render(), this means that it should not modify component state. The lifecycle functions, such as componentWillMount() and componentDidMount() should be used for state change. 
 
+### When would it be unnecessary to include a constructor() in your component?
+
+If your react component has no props being passed down to it, has no state, and has no function bindings, then you do not need a contructor function. 
+
 # Non- Categorized for now
 ### What is 'use strict' mode?
 
