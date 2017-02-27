@@ -50,6 +50,26 @@ For starters, the render() function doesn't necessarily need to be 'pure', but i
 
 If your react component has no props being passed down to it, has no state, and has no function bindings, then you do not need a contructor function. 
 
+### What is super(props)? 
+
+Inside of a components constructor method, you need to include super(props) if you are having props passed down, before any other statements. If you don't include it, then 'this.props' will be undefined. The following code will work just as well:
+```
+constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+// this works just the same
+constructor(props) {
+    super();
+    this.state = {date: new Date()};
+  }
+```
+Both work. The only difference is that when you pass props into super, super(props), then you have access to props in the constructor as this.props as well. As of now, this is the way props is passed down in the React documentation, so we'll follow that. 
+
+### Describe componentDidMount() and when it is precisely called
+
+React has built-in lifecycle methods that are automatically invoked at the appropriate 'lifecycle hooks.' When a component is passed to ReactDOM.render(), first that component's constructor is called, and then that component's render() method is invoked. Immediately after, the actual DOM is updated to match the render output. Right _after_ the render() output is inserted into the DOM, React automatically calls componentDidMount(). The "mount" is the actual DOM updating. 
+
 # Non- Categorized for now
 ### What is 'use strict' mode?
 
