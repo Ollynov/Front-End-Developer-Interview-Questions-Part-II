@@ -68,7 +68,7 @@ Both work. The only difference is that when you pass props into super, super(pro
 
 ### Describe componentDidMount() and when it is precisely called
 
-React has built-in lifecycle methods that are automatically invoked at the appropriate 'lifecycle hooks.' When a component is passed to ReactDOM.render(), first that component's constructor is called, and then that component's render() method is invoked. Immediately after, the actual DOM is updated to match the render output. Right _after_ the render() output is inserted into the DOM, React automatically calls componentDidMount(). The "mount" is the actual DOM updating. 
+React has built-in lifecycle methods that are automatically invoked at the appropriate 'lifecycle hooks.' When a component is passed to ReactDOM.render(), first that component's constructor is called, and then that component's render() method is invoked. Immediately after, the actual DOM is updated with this render output. Right _after_ the render() output is inserted into the DOM, React automatically calls componentDidMount(). The "mount" is the actual DOM updating. 
 
 # Non- Categorized for now
 ### What is 'use strict' mode?
