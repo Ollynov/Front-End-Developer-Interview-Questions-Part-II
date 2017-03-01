@@ -41,7 +41,15 @@ __proto__:HTMLCollection
 ```
 Every DOM node also has a nodeType property which will return a number, that represents what sort of node it is. A 1 represents a regular element. A 3 represents text. An 8 represents a comment block. 
 # ES6
+
 # React
+### Give an overview of component based design
+
+### How would you design a nav bar with React? 
+
+### Describe React Lifecycles and how they mix into the app workflow? 
+
+
 ### Why should the render() function of a component be 'pure', and what does that mean?
 
 For starters, the render() function doesn't necessarily need to be 'pure', but it _should be_ so it does not produce any tricky errors, and so that your entire app can have a structure that is easier to reason about. A pure function must return the same result each time that it is invoked. For render(), this means that it should not modify component state. The lifecycle functions, such as componentWillMount() and componentDidMount() should be used for state change. 
