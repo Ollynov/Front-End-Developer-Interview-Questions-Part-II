@@ -40,7 +40,7 @@ length:2
 __proto__:HTMLCollection
 ```
 Every DOM node also has a nodeType property which will return a number, that represents what sort of node it is. A 1 represents a regular element. A 3 represents text. An 8 represents a comment block. 
-
+# ES6
 # React
 ### Why should the render() function of a component be 'pure', and what does that mean?
 
