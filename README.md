@@ -74,6 +74,47 @@ React has built-in lifecycle methods that are automatically invoked at the appro
 
 State is local, and specific to a particular component, it is 'encapsulated.' This state is only accessible to the ONE component that initializes it and stores it. This state can only affect the components that are structured below it in the hierarchy. State can only be passed to child components through props, from top-down, hence- 'unidirectional.'
 
+### Difference between Angular and React? 
+Angular is a much more extensive framework, it is full MVC. While React is only views focused
+Data binding is different, Angular has two way data binding, in the sense that when a user provides input, not only the view will be updated, but the Model as well. React on the other hand updates the view, but it is not a standalone app, you need to combine it with something else. 
+
+React is quicker. Angular’s two way data binding and dirty checking is quite costly. (see below). React on the other hand has a virtual DOM, which is just a lightweight js object. When there is a change, first the virtual DOM is changed, and then there is comparison of the virtual to the real DOM, and only the necessary components are altered, there is no need for a full O(n^3) tree traversal. 
+Angular has directives, which are a blend of JS, CSS, and HTML, while react uses JSX which is javascript XML, you can essentially mimic html inside of your javascript code. Not necessary, but way easier. 
+
+
+### What is dirty checking with angular, and what is the React equivalent?
+Another word for the digest loop of Angular, in which a loop watches for any changes in any of the variables watched by the $scope.  If $scope.myVar is marked to be watched, then it will fall into Angular’s dirty digest loop. It scans the scope for changes. 
+
+Whenever you call setState on a component, the state is changed and the component is marked as ‘dirty.’ Then the React event loop happens, and looks at all dirty components and re-renders them. The important factor to note here is that the DOM is modified with the updated components all at once. This batching is incredibly important for performance, and would be tough to do with vanilla javascript.
+
+### What is event delegation in React? 
+Attaching event listeners to the DOM is slow and memory consuming (like many alterations with the DOM). Instead, React implements it’s own event delegation. The event listeners are stored in a hash map, rather than on the virtual DOM. 
+
+A single event listener is attached to the root of the document. When an event is fired, the browser gives us the target DOM node. Now, React actually doesn’t even need to iterate through the virtual DOM in order to propagate the event through the DOM hierarchy (misconception). Since every React component has a unique ID, we can use string manipulation to get the ID of all the parents for the event propagation. 
+
+### How do you include a click handler in React? 
+Similar to how you would in HTML, but the events are named in camel case (rather than lowercase), and you pass a function as the actual event handler (rather than a string). 
+
+### Explain the 'diffing' algorithm
+The point of the “diffing” algorithm is to make component updates predictable, but still super fast. 
+It’s one of the factors that makes React so fast. Altering the DOM is relatively expensive, especially if you are making alterations that don’t need to happen. When you batch together write and read operations, then event delegation is faster. The beautiful thing is that React does this all automatically. 
+
+When a virtual DOM is created (lightweight javascript object), it is going to compare that to the actual DOM to make the minimal amount of changes necessary. It’s a O(n^3) (n represents the number of elements in the tree) problem in general to find the minimal modifications between two trees. However, this is still to slow, it’s like a billion comparisons for a thousand elements. React tries to only find differences between trees, level by level. Super rare to have a component moved to a different level in a tree, only horizontally. 
+
+
+### What happens when you call setState in React? 
+The state is updated, and your component is marked as dirty, and then the render() method is called on every child element, and the virtual DOM is rebuilt for all of them. In other words, if you call setState on the root node, then the entire app is re-rendered. Every component will render() even if it’s state has not changed. This is not so bad because we’re still not touching the DOM. Furthermore, you have the option to customize and prevent a particular component from updating with the shouldComponentUpdate. 
+
+Then all at once it will take the dirty components and update the DOM. 
+
+
+### In react how would you communicate from child to child without redux or the parent
+^ you can share a file that is sharing elements. But the real answer is that all other children simply need to be notified. 
+
+### How can you prevent a large tree from re-rendering unnecessarily? 
+Use shouldComponentUpdate().
+
+
 # Non- Categorized for now
 ### What is 'use strict' mode?
 
