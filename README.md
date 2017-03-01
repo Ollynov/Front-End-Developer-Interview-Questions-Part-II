@@ -45,6 +45,10 @@ Every DOM node also has a nodeType property which will return a number, that rep
 # React
 ### Give an overview of component based design
 
+React gives structure and performance to your views (the part of the site that your user sees and interacts with). The primary idea, is to split all of the separate pieces of your visible app into encapsulated and reusable components. You should be able to alter an individual component without breaking other parts of the code base, in fact, a component for one app should be able to be reused for another. 
+
+A component is more than just a function, because it may include state, lifecycle, and rendering. There is a fine-line in how much functionality has been given to a component by the team at Facebook. The intent is to keep React relatively lightweight, and certainly flexible/unopinionated. Yet at the same time, state and lifecycles are a key piece of React because otherwise there would be third parties creating all sorts of abstractions, and it is important to have a reliable source of truth for the most crucial parts of a component. 
+
 ### How would you design a nav bar with React? 
 
 ### Describe React Lifecycles and how they mix into the app workflow? 
