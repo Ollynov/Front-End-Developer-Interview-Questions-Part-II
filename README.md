@@ -57,6 +57,8 @@ This would allow you to build a DropDown component which renders multiple other 
 ### Describe React Lifecycles and how they mix into the app workflow? 
 
 
+
+
 ### What is a functional component, and when would you use one? 
 
 A react component is a class, it inherits from the top level React.Component class (class MyComponent extends React.Component). The reason for this is for added functionality, it can perform custom logic when the corresponding DOM node is created or destroyed. However, you can also have a component be a functional component, which is just how it sounds- a function rather than a class. You should do this for simple presentational components, that do not store local state. 
