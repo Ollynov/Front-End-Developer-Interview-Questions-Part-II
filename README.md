@@ -51,8 +51,17 @@ A component is more than just a function, because it may include state, lifecycl
 
 ### How would you design a nav bar with React? 
 
+Of course there are a couple different approaches, but I would most likely create a top-level component NavBar, which would initialize all of the child components such as "Home," "Sign In", etc. Unless there was some particular reason for the contrary, I would keep all state in the top level NavBar, and only pass down necessary props to the child components. You may even choose to have a structure such as NavBar >> DropDown >> Menu, Home, etc. 
+This would allow you to build a DropDown component which renders multiple other components on a hover event. Or you can choose to include the dropdown as part of the top level NavBar component. It's a design question, I would personally probably break it out into it's own component. 
+
 ### Describe React Lifecycles and how they mix into the app workflow? 
 
+
+### What is a functional component, and when would you use one? 
+
+A react component is a class, it inherits from the top level React.Component class (class MyComponent extends React.Component). The reason for this is for added functionality, it can perform custom logic when the corresponding DOM node is created or destroyed. However, you can also have a component be a functional component, which is just how it sounds- a function rather than a class. You should do this for simple presentational components, that do not store local state. 
+
+Fundamentally both types, are components. Whether a class or a function, both take props, and return elements as their output. 
 
 ### Why should the render() function of a component be 'pure', and what does that mean?
 
